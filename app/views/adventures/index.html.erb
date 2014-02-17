@@ -1,5 +1,6 @@
 <h1>Nina's Personal Collection of Short Adventure Stories</h1>
 <% @adventures.each do |a| %>
-  <%= a.title %>
-  By: <%= a.author %> <br>
+  <% pick_adv = a.pages.find_by(name: "start") %>
+    <li><%= link_to a.title, adventure_page_path(a, pick_adv) %>,</li>
+    By: <%= a.author %>
 <% end %>
